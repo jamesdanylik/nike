@@ -4,6 +4,7 @@
 
 #include "http-request.h"
 #include "http-response.h"
+#include "http-handler.cc"
 #include "CxnCache.h"
 #include "PageCache.h"
 
