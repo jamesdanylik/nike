@@ -1,15 +1,24 @@
 #include "http-helpers.h"
 
+
+#include <arpa/inet.h>
+#include <cstring>
+#include <iostream>
+#include <mutex>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <string>
 #include <stdlib.h>
 #include <sys/ioctl.h>
+#include <sys/socket.h>
 #include <sys/time.h>
 #include <sys/types.h>
 #include <unistd.h>
 
-void* connectionHandler(void* args)
-{
-  exit(0);
-}
+
+#include "PageCache.h"
+
+using namespace std;
 
 bool isClosed(int socket)
 {

@@ -28,11 +28,11 @@ def build (env):
             # Put additional files here
             # ...
             #
+            "http-helpers.cc",
             "http-proxy.cc", # main() function is here
             "http-headers.cc",
             "http-request.cc",
             "http-response.cc",
-            "http-helpers.cc",
             "CxnCache.cc",
             "PageCache.cc"
             ]

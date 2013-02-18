@@ -2,6 +2,7 @@
 #define _HTTP_HELPERS_H_
 
 #include <arpa/inet.h>
+#include <mutex>
 #include <netdb.h>
 #include <netinet/in.h>
 #include <string>
@@ -11,9 +12,18 @@
 #include <sys/types.h>
 #include <unistd.h>
 
+#include "PageCache.h"
+
 using namespace std;
 
-void* cxnHandler(void* args);
+struct thread_data
+{
+  int* numClients;
+  mutex* numClientsLock;
+  PageCache* pc;
+  int socket;
+};
+
 bool isClosed(int socket);
 void initSockAddr( struct sockaddr_in *name,
                    const char * hostname,
