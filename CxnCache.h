@@ -32,7 +32,8 @@ class CxnCache
 public:
   CxnCache();
   ~CxnCache();
-  cxn_t getCxn(string hostname, int port);
+  int getCxn(string hostname, int port);
+  void closeCxn(string hostname, int port);
 private:
   cxn_t cache[CXN_CACHE_SIZE];
 };
