@@ -19,3 +19,9 @@ Next, we check if this request, identified by its url, is in the cache.  If it
 is, serve it directly; else, get it from the remote server, attempting to reuse
 a connection if possible.  Finally, send this response to the client and return
 to listening for bytes.
+
+Notes
+=====
+
+While I believe our server is running to spec, it seems to fail the automated testing
+for reasons unknown.  Due to time constraints, I msut turn in what I have.
