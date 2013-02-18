@@ -14,7 +14,7 @@ def configure (env):
 #
 
     env.check_boost(lib='thread')
-    env.env.append_value('CXXFLAGS', ['-O0', '-g3', '-Wall', '-Werror'])
+    env.env.append_value('CXXFLAGS', ['-O0', '-g3', '-Wall', '-Werror', '-std=gnu++11', '-lpthread'])
 
 def build (env):
     env.load ('compiler_c compiler_cxx')
@@ -32,5 +32,7 @@ def build (env):
             "http-headers.cc",
             "http-request.cc",
             "http-response.cc",
+            "CxnCache.cc",
+            "PageCache.cc"
             ]
         )
