@@ -32,6 +32,7 @@ def build (env):
             "http-headers.cc",
             "http-request.cc",
             "http-response.cc",
+            "http-handler.cc",
             "CxnCache.cc",
             "PageCache.cc"
             ]
