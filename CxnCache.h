@@ -34,7 +34,6 @@ public:
   ~CxnCache();
   cxn_t getCxn(string hostname, int port);
 private:
-  bool isClosed(int socket);
   cxn_t cache[CXN_CACHE_SIZE];
 };
 
