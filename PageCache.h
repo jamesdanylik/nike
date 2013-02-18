@@ -22,8 +22,10 @@ struct pagecache_t
   {
     active = false;
     content = "";
+    url = "";
   }
   // Structure fields
+  string url;
   HttpResponse header;
   string       content;
   bool         active;
@@ -35,10 +37,13 @@ public:
   // Methods
   PageCache();
   ~PageCache();
-  pagecache_t getPage(HttpRequest request);  
+  pagecache_t getPage(HttpRequest request);
+  pagecache_t fetchPage(HttpRequest request);
+  void        evictOldest();  
   void        cachePage(pagecache_t page);
   // Class fields
   pagecache_t cache[PAGE_CACHE_SIZE];
+  CxnCache    cxns;
   mutex       cacheLock;
 };
 

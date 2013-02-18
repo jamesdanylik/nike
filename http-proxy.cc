@@ -24,11 +24,25 @@ using namespace std;
 int main (int argc, char *argv[])
 {
   // command line parsing
-  CxnCache test1;
-  PageCache test2;
+  PageCache test;
 
-  test1.getCxn("www.xkcd.com", 80);
-  sleep(30);
-  test1.getCxn("www.xkcd.com", 80);
+  HttpRequest req;
+  req.SetHost("www.whitehouse.gov");
+  req.SetPort(80);
+  req.SetPath("/");
+  req.SetMethod(HttpRequest::MethodEnum::GET); 
+  req.SetVersion ("1.1");
+  req.AddHeader ("Accept-Language", "en-US"); 
+  pagecache_t res;
+  res = test.getPage(req);
+
+  char buffer[res.header.GetTotalLength()];
+  res.header.FormatResponse(buffer);
+  string response_string = string(buffer,res.header.GetTotalLength());
+
+  cout << response_string;
+  cout << res.content;
+
+  test.getPage(req);
   return 0;
 }
